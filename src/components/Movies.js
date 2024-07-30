@@ -1,6 +1,6 @@
-import getMovies from "../lib/getMovies.js";
+import {getMovies} from "../lib/getMovies.js";
 import { navigateTo } from "../router.js";
-
+console.log(getMovies)
 //  Presentar las peliculas
 
 // despues de invocar getMovies imprimirlas
@@ -12,17 +12,14 @@ const presentMovies = () => {
     ul.classList.add('peliculas')
     const baseUrl = 'https://image.tmdb.org/t/p/original/'
 
-    getMovies().then(Movies => {
-        Movies.forEach(movie => {                                                // aca invocas la funcion (promesa) que traera las peliculas
+    getMovies().then(movies => {
+        movies.forEach(movie => {                                                // aca invocas la funcion (promesa) que traera las peliculas
             const li = document.createElement('li');
-            li.addEventListener("click", () => {                                // paso 1 al li agregale un evento
-            console.log(movie.id)
-            navigateTo('/detail',{id:movie.id})                                               // paso 2 dentro del evento imprime un console.log(movie.id)
+            li.addEventListener("click", () => {                                 // paso 1 al li agregale un evento
+            console.log(movie.id)                                                // paso 2 dentro del evento imprime un console.log(movie.id)
+            navigateTo('/detail',{id:movie.id})                                  // paso 4 invocar la funcion navigateTo('/detail', {id:movie.id})
         }); 
         
-                                                                                // como resultado de el paso 2 tiene que ver cuando haces click los id en consola
-                            
-                                                               // paso 4 invocar la funcion navigateTo('/detail', {id:movie.id})  //
             li.classList.add('pelicula')
 
             const img = document.createElement('img')
@@ -39,7 +36,7 @@ const presentMovies = () => {
             li.appendChild(title);
             li.appendChild(estreno);
             ul.appendChild(li);
-            console.log("Película:", movie.name);
+           
 
         });
     });

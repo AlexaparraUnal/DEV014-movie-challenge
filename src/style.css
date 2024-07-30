@@ -38,6 +38,29 @@
   flex-wrap: wrap;
   list-style-type: none;
 }
+.Detalle img{
+  width: 238px;
+  height: 60%;
+  margin: 0 auto;
+  object-fit: cover;
+  float: left; 
+  margin-right: 20px;
+}
+.Detalle h1,
+.Detalle h2,
+.Detalle h3,
+.Detalle h4,
+.Detalle h5{
+
+  color: white;
+  text-align: left;
+  margin-left: 20px;
+  clear: right;
+}
+#filterYear{
+  background-color: white;
+}
+
 h2{
   color: white;
 }
